@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -16,4 +17,9 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter:
+  assets:
+    - assets/
   uses-material-design: true
+  
+   
+
