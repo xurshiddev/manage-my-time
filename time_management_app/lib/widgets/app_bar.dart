@@ -17,10 +17,34 @@ class MyAppBar extends StatelessWidget {
               ),
             );
           }),
-          title: const Text("Hi, Xurshid!", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900),),
+          title: const Text(
+            "Hi, Xurshid!",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900, color: Color.fromARGB(255, 17, 18, 23)),
+          ),
           actions: [
             IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
           ],
         ));
+  }
+}
+
+class TaskscreenAppBar extends StatelessWidget {
+  const TaskscreenAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+        foregroundColor: Colors.white,
+        title: const ListTile(
+          title: Text(
+            "Personal taks",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          subtitle: Text(
+            "You have 3 tasks for today",
+            style: TextStyle(color: Colors.white60),
+          ),
+        ),
+        backgroundColor:  const Color.fromARGB(255, 28, 29, 33));
   }
 }

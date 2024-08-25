@@ -12,11 +12,12 @@ class GoPremiumCard extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.all(25),
-            height: 160,
+            height: 130,
             width: 400,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                color: Colors.black87),
+                color: Color.fromARGB(255, 28, 29, 33)
+                ),
             child: const Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -64,7 +65,7 @@ class GoPremiumCard extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(20)))),
                       iconColor: WidgetStatePropertyAll(Colors.white),
                       backgroundColor:
-                          WidgetStatePropertyAll(Colors.lightBlueAccent)),
+                          WidgetStatePropertyAll(Color.fromARGB(255, 96, 148, 247))),
                   onPressed: () {},
                   child: const Icon(Icons.arrow_forward)))
         ],
