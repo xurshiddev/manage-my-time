@@ -3,19 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
 class TasksCard extends StatelessWidget {
-  const TasksCard(
-      {super.key,
-      required this.taskName,
-      required this.taskColor,
-      required this.taskIcon});
+  const TasksCard({
+    super.key,
+    required this.taskName,
+    required this.taskColor,
+    required this.taskIcon,
+    required this.iconColor,
+    required this.complatedTasks,
+    required this.leftChipColor,
+    required this.leftTasks,
+  });
 
   final String taskName;
-  final Icon taskIcon;
+  final IconData taskIcon;
   final Color taskColor;
+  final Color iconColor;
+  final Color leftChipColor;
+  final int leftTasks;
+  final int complatedTasks;
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       padding: const EdgeInsets.all(15),
       height: 180,
       width: 180,
@@ -25,7 +33,10 @@ class TasksCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          taskIcon,
+          Icon(
+            taskIcon,
+            color: iconColor,
+          ),
           const SizedBox(
             height: 40,
           ),
@@ -37,23 +48,22 @@ class TasksCard extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          const Row(
+           Row(
             children: [
               Chip(
-                side: BorderSide(width: 0, color: Color.fromARGB(176, 255, 255, 255)),
-                color:
-                    WidgetStatePropertyAll(Color.fromARGB(52, 208, 41, 41)),
-                label: Text("1 left"),
-                shape: RoundedRectangleBorder(
+                side: BorderSide(
+                    width: 0, color: leftChipColor ),
+                color: WidgetStatePropertyAll(leftChipColor),
+                label: Text("$leftTasks left"),
+                shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))),
               ),
-              SizedBox(width: 5),
-              Chip(
-                                side: BorderSide(
+              const SizedBox(width: 5),
+               Chip(
+                side: const BorderSide(
                     width: 0, color: Color.fromARGB(176, 255, 255, 255)),
-
-                label: Text("3 done"),
-                shape: RoundedRectangleBorder(
+                label: Text("$complatedTasks done"),
+                shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))),
               )
             ],
@@ -70,16 +80,18 @@ class DottedborderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DottedBorder(
-      color: const Color.fromARGB(148, 155, 107, 217),
-      borderType: BorderType.RRect,
-      radius: const Radius.circular(20),
-      dashPattern: const [8, 4],
-      strokeWidth: 2,
-      child: TextButton(
-        style: const ButtonStyle(
-          fixedSize: WidgetStatePropertyAll(Size(175,175))
-        ),
-        onPressed: (){}, child: const Text("+ Add", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),))
-    );
+        color: const Color.fromARGB(148, 155, 107, 217),
+        borderType: BorderType.RRect,
+        radius: const Radius.circular(20),
+        dashPattern: const [8, 4],
+        strokeWidth: 2,
+        child: TextButton(
+            style: const ButtonStyle(
+                fixedSize: WidgetStatePropertyAll(Size(175, 175))),
+            onPressed: () {},
+            child: const Text(
+              "+ Add",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            )));
   }
 }
